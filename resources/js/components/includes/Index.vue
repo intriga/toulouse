@@ -1,14 +1,5 @@
 <template>
-    <div>
-        <!-- Navigation-->
-        <navbar></navbar>
-
-        <!-- Header-->
-        <Header></Header>
-
-        <!-- Section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
+    <div class="container px-4 px-lg-5 mt-5">
                 <div class="row justify-content-center">
                     <table class="table table-striped table-bordered table-hover table-condensed table-responsive">
                         <thead>
@@ -30,24 +21,14 @@
                     </table>
                 </div>
             </div>
-        </section>
-        <!-- Footer-->
-        <Footer></Footer>
-        
-    </div>
 </template>
 
 <script>
-    import Navbar from './includes/Navbar.vue'   
-    import Header from './includes/Header.vue'   
-    import Footer from './includes/Footer.vue'   
-
 
     import axios from 'axios'
     import moment from 'moment';
     
     export default {
-        components: { Navbar, Header, Footer },
 
         name: 'posts',
 

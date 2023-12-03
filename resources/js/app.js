@@ -2,10 +2,10 @@ import './bootstrap';
 
 import { createApp } from 'vue';
 
-import Home from "./components/Home.vue";
+import App from "./components/App.vue";
 
 import router from './routes/index'
 
-createApp(Home)
+createApp(App)
     .use(router)
     .mount('#app')

@@ -21,7 +21,9 @@
 </head>
 <body>
 
-    <div id="app"></div>
+    <div id="app">
+        <app></app>
+    </div>
     
     <!-- Core theme JS-->
     <script src="{{ asset('vendor/js/scripts.js') }}"></script>
