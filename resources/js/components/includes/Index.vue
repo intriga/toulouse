@@ -8,6 +8,7 @@
                             <th>Title</th>
                             <th>Content</th>
                             <th>Date</th>
+                            <th>Options</th>
                         </tr>
                         </thead>
                         <tbody v-if="this.posts.length > 0">
@@ -16,6 +17,16 @@
                                 <td>{{ posts.title }}</td>
                                 <td>{{ posts.content }}</td>
                                 <td>{{ format_date(posts.created_at) }}</td>
+                                
+                                <td>
+                                    <RouterLink class="btn btn-success" 
+                                                :to="{ path: '/pages/'+posts.id+'/edit' }">
+                                        Edit
+                                    </RouterLink>
+                                    <button type="button" @click="deletePost(posts.id)" class="btn btn-danger">
+                                        delete
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -51,9 +62,20 @@
             getPosts() {
                 axios.get('http://127.0.0.1:8000/api/posts').then(res => {
                     this.posts = res.data;
-                    console.log(this.posts);
+                    //console.log(this.posts);
                 });
             },
+
+            deletePost(postId){
+                axios.delete(`http://127.0.0.1:8000/api/posts/${postId}/delete`).then(res => {
+                    //console.log(res.data);
+                    this.getPosts();
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            }
         }
 
     }
