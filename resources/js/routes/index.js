@@ -5,6 +5,7 @@ import Index from "@/components/includes/Index.vue";
 import About from "@/components/pages/About.vue";
 import Create from "@/components/pages/Create.vue";
 import Edit from "@/components/pages/Edit.vue";
+import Products from "@/components/pages/Products.vue";
 
 const routes = [
     { 
@@ -27,6 +28,11 @@ const routes = [
         name: 'pages.edit',
         component: Edit 
     }, 
+    { 
+        path: '/pages/products', 
+        name: 'pages.products',
+        component: Products 
+    },
 ]
 
 
