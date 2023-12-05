@@ -1,37 +1,43 @@
 <template>
-    <div class="container px-4 px-lg-5 mt-5">
-                <div class="row justify-content-center">
-                    <table class="table table-striped table-bordered table-hover table-condensed table-responsive">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Title</th>
-                            <th>Content</th>
-                            <th>Date</th>
-                            <th>Options</th>
-                        </tr>
-                        </thead>
-                        <tbody v-if="this.posts.length > 0">
-                            <tr v-for="(posts, index) in this.posts" :key="index">
-                                <td>{{ posts.id }}</td>
-                                <td>{{ posts.title }}</td>
-                                <td>{{ posts.content }}</td>
-                                <td>{{ format_date(posts.created_at) }}</td>
-                                
-                                <td>
-                                    <RouterLink class="btn btn-success" 
-                                                :to="{ path: '/pages/'+posts.id+'/edit' }">
-                                        Edit
-                                    </RouterLink>
-                                    <button type="button" @click="deletePost(posts.id)" class="btn btn-danger">
-                                        delete
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+    <div class="container px-4 px-lg-5 mt-5">        
+        <div class="row justify-content-center">
+            <div>
+                <RouterLink class="btn btn-primary btn-lg float-end" 
+                            :to="{ path: '/pages/create' }">
+                    Create
+                </RouterLink>                
             </div>
+            <table class="table table-striped table-bordered table-hover table-condensed table-responsive">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Date</th>
+                    <th>Options</th>
+                </tr>
+                </thead>
+                <tbody v-if="this.posts.length > 0">
+                    <tr v-for="(posts, index) in this.posts" :key="index">
+                        <td>{{ posts.id }}</td>
+                        <td>{{ posts.title }}</td>
+                        <td>{{ posts.content }}</td>
+                        <td>{{ format_date(posts.created_at) }}</td>
+                        
+                        <td>
+                            <RouterLink class="btn btn-success" 
+                                        :to="{ path: '/pages/'+posts.id+'/edit' }">
+                                Edit
+                            </RouterLink>
+                            <button type="button" @click="deletePost(posts.id)" class="btn btn-danger">
+                                delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </template>
 
 <script>
